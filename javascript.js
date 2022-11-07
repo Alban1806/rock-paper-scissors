@@ -54,7 +54,7 @@ const winner = document.createElement('div');
 let round = 1;
 let playerScore = 0;
 let cpuScore = 0;
-player.textContent = 'Player 1: ' + playerScore;
+player.textContent = 'Player: ' + playerScore;
 cpu.textContent = 'CPU: ' + cpuScore;
 
 scoreBoard.setAttribute('id','score-board');
@@ -97,14 +97,17 @@ function playGame(e) {
     if(isWinner == 1) {
         playerScore++;
         player.textContent = 'Player: ' + playerScore;
+        winner.textContent = "";
         console.log(`Round ${round}\nPlayer: ${playerDecision}\nCPU: ${cpuDecision}\nWinner: Player`);
     }
     else if(isWinner == 2) {
         cpuScore++;
         cpu.textContent = 'CPU: ' + cpuScore;
+        winner.textContent = "";
         console.log(`Round ${round}\nPlayer: ${playerDecision}\nCPU: ${cpuDecision}\nWinner: CPU`);
     }
     else {
+        winner.textContent = 'Tie, try again';
         console.log(`Round ${round}\nPlayer: ${playerDecision}\nCPU: ${cpuDecision}\nTie`);
     }
 
